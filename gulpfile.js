@@ -17,9 +17,9 @@ const paths = {
     'src/libs/underscore-min.js',
     'src/libs/backbone-min.js',
     'src/libs/modernizr-2.6.2.min.js',
-    'src/app/models/*.js',
-    'src/app/collections/*.js',
-    'src/app/views/*.js',
+    'src/app/models/**/*.js',
+    'src/app/collections/**/*.js',
+    'src/app/views/**/*.js',
     'src/app/routers/*.js',
     'src/app/main.js'
   ]
