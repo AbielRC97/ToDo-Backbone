@@ -27,18 +27,15 @@ const ToDoItemsView = Backbone.View.extend({
         return this;
     },
 
-    onNewItem: function () {
+    onNewItem: async function () {
         const inputVal = this.$('#newItem').val().trim();
         console.log('Valor del input:', inputVal);  // Verifica el valor que se está capturando
 
         if (inputVal) {
-            const nuevoItem = new ToDoItem({ description: inputVal });
-
+            const nuevoItem = new ToDoItem({ title: inputVal });
             console.log('Nuevo ítem:', nuevoItem);  // Verifica el modelo creado
-
-            this.model.add(nuevoItem, { silent: false });  // Agregar a la colección
+            this.model.create(nuevoItem);  // Agregar a la colección
             console.log('Colección después de agregar:', this.model.toJSON());  // Verifica el contenido de la colección
-
             this.$('#newItem').val('');  // Limpiar el input
             this.render();
         }

@@ -14,16 +14,9 @@ const AppRouter = Backbone.Router.extend({
     });
     $("#app").append(toDoView.render().$el);
   },
-  onListing: function() {
-    const toDoCollection = new ToDoCollection([
-      new ToDoItem({
-        description: "Que Rico"
-      }),
-      new ToDoItem({
-        description: "Que Rico 2"
-      })
-    ]);
-
+  onListing: async function() {
+    const toDoCollection = new ToDoCollection();
+    await toDoCollection.fetch();
     const toDoItemsView = new ToDoItemsView({
       model: toDoCollection
     });
