@@ -1,4 +1,14 @@
-<div class="form-check">
-    <input type="checkbox" id="toggle" class="form-check-input" {{#if isCompleted}}checked{{/if}} />
-    {{description}}
+<div class="row align-items-center mb-2">
+    <!-- Columna para el checkbox -->
+    <div class="col-10 col-sm-8 col-md-10">
+        <div class="form-check">
+            <input type="checkbox" id="toggle" class="form-check-input" {{#if isCompleted}}checked{{/if}} />
+            {{description}}
+        </div>
+    </div>
+    
+    <!-- Columna para el botón de eliminar -->
+    <div class="col-2 col-sm-4 col-md-2 text-center">
+        <button class="btn btn-danger btn-eliminar" type="button">Eliminar</button>
+    </div>
 </div>

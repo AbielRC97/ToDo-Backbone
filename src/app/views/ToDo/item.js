@@ -3,6 +3,7 @@ const ToDoView = Backbone.View.extend({
     className: "list-group-item",
     events: {
         'click #toggle': 'onChecked',
+        'click .btn-eliminar': 'onDelete',
     },
 
     template: Curso.Templates["item"],  // Esta es la función de Handlebars, no una cadena
@@ -22,6 +23,10 @@ const ToDoView = Backbone.View.extend({
 
     onChecked: function () {
         this.model.toggle();
-        console.log(this.model.toJSON());
+    },
+
+    onDelete: function () {
+        this.model.destroy();
+        this.remove();
     }
 });
