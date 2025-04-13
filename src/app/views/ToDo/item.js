@@ -26,7 +26,20 @@ const ToDoView = Backbone.View.extend({
     },
 
     onDelete: function () {
-        this.model.destroy();
-        this.remove();
+        Swal.fire({
+            title: `Deseas eliminar el elemento ${this.model.escape('title')}`,
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: "Eliminar",
+            denyButtonText: `Cancelar`
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                this.model.destroy();
+                this.remove();
+                Swal.fire("Eliminado!", "Se elimino correctamente.", "success");
+            }
+        });
+
     }
 });

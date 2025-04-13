@@ -1,7 +1,6 @@
 const AppRouter = Backbone.Router.extend({
   routes: {
-    '': 'onHome',
-    'listing': 'onListing'
+    '': 'onListing',
   },
 
   onHome: function () {

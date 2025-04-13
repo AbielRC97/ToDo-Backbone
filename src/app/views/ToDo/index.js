@@ -37,7 +37,18 @@ const ToDoItemsView = Backbone.View.extend({
             this.model.create(nuevoItem);  // Agregar a la colección
             console.log('Colección después de agregar:', this.model.toJSON());  // Verifica el contenido de la colección
             this.$('#newItem').val('');  // Limpiar el input
+            Swal.fire({
+                title: "Guardado",
+                text: `Se agrergo correctamente el elemento ${inputVal}`,
+                icon: "success"
+            });
             this.render();
+        } else {
+            Swal.fire({
+                title: "Fallo",
+                text: `el titulo es requerido`,
+                icon: "error"
+            });
         }
     },
     onKeyPress: function (e) {
